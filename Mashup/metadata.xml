@@ -1,0 +1,530 @@
+<LocalPackageMetadataFile>
+  <Items>
+    <Item>
+      <ItemLocation>
+        <ItemType>AllFormulas</ItemType>
+        <ItemPath />
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="Relationships" Value="sAAAAAA==" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/SqlServerInstance</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="LoadToReportDisabled" Value="l1" />
+        <Entry Type="FillToDataModelEnabled" Value="l0" />
+        <Entry Type="FillEnabled" Value="l0" />
+        <Entry Type="FillObjectType" Value="sConnectionOnly" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="ResultType" Value="sText" />
+        <Entry Type="LoadedToAnalysisServices" Value="l0" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/SqlServerDatabase</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="LoadToReportDisabled" Value="l1" />
+        <Entry Type="FillToDataModelEnabled" Value="l0" />
+        <Entry Type="FillEnabled" Value="l0" />
+        <Entry Type="FillObjectType" Value="sConnectionOnly" />
+        <Entry Type="ResultType" Value="sText" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="LoadedToAnalysisServices" Value="l0" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="IsDirectQuery" Value="l0" />
+        <Entry Type="ResultType" Value="sTable" />
+        <Entry Type="NameUpdatedAfterFill" Value="l1" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+        <Entry Type="RelationshipInfoContainer" Value="s{&quot;columnCount&quot;:7,&quot;keyColumnNames&quot;:[],&quot;queryRelationships&quot;:[],&quot;columnIdentities&quot;:[&quot;Section1/Customer/Add NA Row.{CustomerKey,0}&quot;,&quot;Section1/Customer/Add NA Row.{CustomerAlternateKey,1}&quot;,&quot;Section1/Customer/Add NA Row.{Customer,2}&quot;,&quot;Section1/Customer/Add NA Row.{City,3}&quot;,&quot;Section1/Customer/Add NA Row.{StateProvinceName,4}&quot;,&quot;Section1/Customer/Add NA Row.{EnglishCountryRegionName,5}&quot;,&quot;Section1/Customer/Add NA Row.{PostalCode,6}&quot;],&quot;ColumnCount&quot;:7,&quot;KeyColumnNames&quot;:[],&quot;ColumnIdentities&quot;:[&quot;Section1/Customer/Add NA Row.{CustomerKey,0}&quot;,&quot;Section1/Customer/Add NA Row.{CustomerAlternateKey,1}&quot;,&quot;Section1/Customer/Add NA Row.{Customer,2}&quot;,&quot;Section1/Customer/Add NA Row.{City,3}&quot;,&quot;Section1/Customer/Add NA Row.{StateProvinceName,4}&quot;,&quot;Section1/Customer/Add NA Row.{EnglishCountryRegionName,5}&quot;,&quot;Section1/Customer/Add NA Row.{PostalCode,6}&quot;],&quot;RelationshipInfo&quot;:[]}" />
+        <Entry Type="FillColumnNames" Value="s[&quot;CustomerKey&quot;,&quot;Customer ID&quot;,&quot;Customer&quot;,&quot;City&quot;,&quot;State-Province&quot;,&quot;Country-Region&quot;,&quot;Postal Code&quot;]" />
+        <Entry Type="IsLastAnalysisServicesFormulaTextCollection" Value="l1" />
+        <Entry Type="LastAnalysisServicesFormulaText" Value="s{&quot;IncludesReferencedQueries&quot;:true,&quot;RootFormulaText&quot;:&quot;let\r\n    Source = Sql.Database(SqlServerInstance, SqlServerDatabase),\r\n    dbo_DimCustomer = Source{[Schema=\&quot;dbo\&quot;,Item=\&quot;DimCustomer\&quot;]}[Data],\r\n    #\&quot;Removed Other Columns\&quot; = Table.SelectColumns(dbo_DimCustomer,{\&quot;CustomerKey\&quot;, \&quot;CustomerAlternateKey\&quot;, \&quot;FirstName\&quot;, \&quot;LastName\&quot;, \&quot;DimGeography\&quot;}),\r\n    #\&quot;Expanded DimGeography\&quot; = Table.ExpandRecordColumn(#\&quot;Removed Other Columns\&quot;, \&quot;DimGeography\&quot;, {\&quot;City\&quot;, \&quot;StateProvinceName\&quot;, \&quot;EnglishCountryRegionName\&quot;, \&quot;PostalCode\&quot;}, {\&quot;City\&quot;, \&quot;StateProvinceName\&quot;, \&quot;EnglishCountryRegionName\&quot;, \&quot;PostalCode\&quot;}),\r\n    #\&quot;Merged Columns\&quot; = Table.CombineColumns(#\&quot;Expanded DimGeography\&quot;,{\&quot;FirstName\&quot;, \&quot;LastName\&quot;},Combiner.CombineTextByDelimiter(\&quot; \&quot;, QuoteStyle.None),\&quot;Customer\&quot;),\r\n    #\&quot;Add NA Row\&quot; = Table.InsertRows(#\&quot;Merged Columns\&quot;, 0, {[CustomerKey = -1, CustomerAlternateKey = \&quot;[Not Applicable]\&quot;, Customer = \&quot;[Not Applicable]\&quot;, City = \&quot;[Not Applicable]\&quot;, StateProvinceName =\&quot;[Not Applicable]\&quot;, EnglishCountryRegionName =\&quot;[Not Applicable]\&quot;, PostalCode =\&quot;[Not Applicable]\&quot;]}),\r\n    #\&quot;Renamed Columns\&quot; = Table.RenameColumns(#\&quot;Add NA Row\&quot;,{{\&quot;CustomerAlternateKey\&quot;, \&quot;Customer ID\&quot;}, {\&quot;StateProvinceName\&quot;, \&quot;State-Province\&quot;}, {\&quot;EnglishCountryRegionName\&quot;, \&quot;Country-Region\&quot;}, {\&quot;PostalCode\&quot;, \&quot;Postal Code\&quot;}})\r\nin\r\n    #\&quot;Renamed Columns\&quot;&quot;,&quot;ReferencedQueriesFormulaText&quot;:{&quot;SqlServerInstance&quot;:&quot;\&quot;POWERBI-SQL\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;SqlServerDatabase&quot;:&quot;\&quot;AdventureWorksDW2020-DAX-Docs\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;}}" />
+        <Entry Type="LoadedToAnalysisServices" Value="l1" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="IsDirectQuery" Value="l0" />
+        <Entry Type="NameUpdatedAfterFill" Value="l1" />
+        <Entry Type="ResultType" Value="sTable" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="FillColumnNames" Value="s[&quot;DateKey&quot;,&quot;Date&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Quarter&quot;,&quot;Month&quot;,&quot;Full Date&quot;,&quot;MonthKey&quot;]" />
+        <Entry Type="RelationshipInfoContainer" Value="s{&quot;columnCount&quot;:7,&quot;keyColumnNames&quot;:[&quot;DateKey&quot;],&quot;queryRelationships&quot;:[{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactCallCenter.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactCurrencyRate.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactFinance.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{DueDateKey,5}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{OrderDateKey,4}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{ShipDateKey,6}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactProductInventory.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{DueDateKey,5}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{OrderDateKey,4}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{ShipDateKey,6}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactSalesQuota.{DateKey,2}&quot;,&quot;KeyColumnCount&quot;:1}],&quot;columnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimDate.{DateKey,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimDate.{FullDateAlternateKey,1}&quot;,&quot;Section1/Date/Added FY Prefix.{Fiscal Year,6}&quot;,&quot;Section1/Date/Changed Type.{Fiscal Quarter,3}&quot;,&quot;Section1/Date/Changed Type.{Month,4}&quot;,&quot;Section1/Date/Changed Type.{Full Date,5}&quot;,&quot;Section1/Date/Changed Type.{MonthKey,6}&quot;],&quot;ColumnCount&quot;:7,&quot;KeyColumnNames&quot;:[&quot;DateKey&quot;],&quot;ColumnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimDate.{DateKey,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimDate.{FullDateAlternateKey,1}&quot;,&quot;Section1/Date/Added FY Prefix.{Fiscal Year,6}&quot;,&quot;Section1/Date/Changed Type.{Fiscal Quarter,3}&quot;,&quot;Section1/Date/Changed Type.{Month,4}&quot;,&quot;Section1/Date/Changed Type.{Full Date,5}&quot;,&quot;Section1/Date/Changed Type.{MonthKey,6}&quot;],&quot;RelationshipInfo&quot;:[{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactCallCenter.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactCurrencyRate.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactFinance.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{DueDateKey,5}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{OrderDateKey,4}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{ShipDateKey,6}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactProductInventory.{DateKey,1}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{DueDateKey,5}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{OrderDateKey,4}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{ShipDateKey,6}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactSalesQuota.{DateKey,2}&quot;,&quot;KeyColumnCount&quot;:1}]}" />
+        <Entry Type="LastAnalysisServicesFormulaText" Value="s{&quot;IncludesReferencedQueries&quot;:true,&quot;RootFormulaText&quot;:&quot;let\r\n    Source = Sql.Database(SqlServerInstance, SqlServerDatabase),\r\n    dbo_DimDate = Source{[Schema=\&quot;dbo\&quot;,Item=\&quot;DimDate\&quot;]}[Data],\r\n    #\&quot;Removed Other Columns\&quot; = Table.SelectColumns(dbo_DimDate,{\&quot;DateKey\&quot;, \&quot;FullDateAlternateKey\&quot;, \&quot;DayNumberOfMonth\&quot;, \&quot;MonthNumberOfYear\&quot;, \&quot;CalendarYear\&quot;, \&quot;FiscalQuarter\&quot;, \&quot;FiscalYear\&quot;}),\r\n    #\&quot;Renamed Columns\&quot; = Table.RenameColumns(#\&quot;Removed Other Columns\&quot;,{{\&quot;FullDateAlternateKey\&quot;, \&quot;Date\&quot;}, {\&quot;FiscalYear\&quot;, \&quot;Fiscal Year\&quot;}}),\r\n    #\&quot;Added FY Prefix\&quot; = Table.TransformColumns(#\&quot;Renamed Columns\&quot;, {{\&quot;Fiscal Year\&quot;, each \&quot;FY\&quot; \u0026 Text.From(_, \&quot;en-US\&quot;), type text}}),\r\n    #\&quot;Added Fiscal Quarter\&quot; = Table.AddColumn(#\&quot;Added FY Prefix\&quot;, \&quot;Fiscal Quarter\&quot;, each [Fiscal Year] \u0026 \&quot; Q\&quot; \u0026 Number.ToText([FiscalQuarter])),\r\n    #\&quot;Added Month\&quot; = Table.AddColumn(#\&quot;Added Fiscal Quarter\&quot;, \&quot;Month\&quot;, each (Number.ToText([CalendarYear]) \u0026 \&quot; \&quot; \u0026 Date.ToText([Date], \&quot;MMM\&quot;, Culture)), type text),\r\n    #\&quot;Added Full Date\&quot; = Table.AddColumn(#\&quot;Added Month\&quot;, \&quot;Full Date\&quot;, each [Month] \u0026 \&quot;, \&quot; \u0026 Text.PadStart(Number.ToText([DayNumberOfMonth]), 2, \&quot;0\&quot;)),\r\n    #\&quot;Added MonthKey\&quot; = Table.AddColumn(#\&quot;Added Full Date\&quot;, \&quot;MonthKey\&quot;, each ([CalendarYear] * 100) + [MonthNumberOfYear]),\r\n    #\&quot;Removed Other Columns1\&quot; = Table.SelectColumns(#\&quot;Added MonthKey\&quot;,{\&quot;DateKey\&quot;, \&quot;Date\&quot;, \&quot;Fiscal Year\&quot;, \&quot;Fiscal Quarter\&quot;, \&quot;Month\&quot;, \&quot;Full Date\&quot;, \&quot;MonthKey\&quot;}),\r\n    #\&quot;Changed Type\&quot; = Table.TransformColumnTypes(#\&quot;Removed Other Columns1\&quot;,{{\&quot;Fiscal Quarter\&quot;, type text}, {\&quot;Month\&quot;, type text}, {\&quot;Full Date\&quot;, type text}, {\&quot;MonthKey\&quot;, Int64.Type}})\r\nin\r\n    #\&quot;Changed Type\&quot;&quot;,&quot;ReferencedQueriesFormulaText&quot;:{&quot;SqlServerInstance&quot;:&quot;\&quot;POWERBI-SQL\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;SqlServerDatabase&quot;:&quot;\&quot;AdventureWorksDW2020-DAX-Docs\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;Culture&quot;:&quot;\&quot;en-US\&quot; meta [IsParameterQuery=true, Type=\&quot;Any\&quot;, IsParameterQueryRequired=true]&quot;}}" />
+        <Entry Type="IsLastAnalysisServicesFormulaTextCollection" Value="l1" />
+        <Entry Type="LoadedToAnalysisServices" Value="l1" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Source</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/dbo_DimDate</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Removed%20Other%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Renamed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Added%20Fiscal%20Quarter</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Added%20Month</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Added%20MonthKey</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Added%20FY%20Prefix</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Removed%20Other%20Columns1</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Changed%20Type</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Territory</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="IsDirectQuery" Value="l0" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="ResultType" Value="sTable" />
+        <Entry Type="NameUpdatedAfterFill" Value="l1" />
+        <Entry Type="RelationshipInfoContainer" Value="s{&quot;columnCount&quot;:4,&quot;keyColumnNames&quot;:[&quot;SalesTerritoryKey&quot;],&quot;queryRelationships&quot;:[{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimEmployee.{SalesTerritoryKey,4}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimGeography.{SalesTerritoryKey,9}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{SalesTerritoryKey,9}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{SalesTerritoryKey,10}&quot;,&quot;KeyColumnCount&quot;:1}],&quot;columnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryKey,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryRegion,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryCountry,3}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryGroup,4}&quot;],&quot;ColumnCount&quot;:4,&quot;KeyColumnNames&quot;:[&quot;SalesTerritoryKey&quot;],&quot;ColumnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryKey,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryRegion,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryCountry,3}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimSalesTerritory.{SalesTerritoryGroup,4}&quot;],&quot;RelationshipInfo&quot;:[{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimEmployee.{SalesTerritoryKey,4}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimGeography.{SalesTerritoryKey,9}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{SalesTerritoryKey,9}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{SalesTerritoryKey,10}&quot;,&quot;KeyColumnCount&quot;:1}]}" />
+        <Entry Type="FillColumnNames" Value="s[&quot;SalesTerritoryKey&quot;,&quot;Region&quot;,&quot;Country&quot;,&quot;Group&quot;]" />
+        <Entry Type="IsLastAnalysisServicesFormulaTextCollection" Value="l1" />
+        <Entry Type="LastAnalysisServicesFormulaText" Value="s{&quot;IncludesReferencedQueries&quot;:true,&quot;RootFormulaText&quot;:&quot;let\r\n    Source = Sql.Database(SqlServerInstance, SqlServerDatabase),\r\n    dbo_DimSalesTerritory = Source{[Schema=\&quot;dbo\&quot;,Item=\&quot;DimSalesTerritory\&quot;]}[Data],\r\n    #\&quot;Removed Other Columns\&quot; = Table.SelectColumns(dbo_DimSalesTerritory,{\&quot;SalesTerritoryKey\&quot;, \&quot;SalesTerritoryRegion\&quot;, \&quot;SalesTerritoryCountry\&quot;, \&quot;SalesTerritoryGroup\&quot;}),\r\n    #\&quot;Renamed Columns\&quot; = Table.RenameColumns(#\&quot;Removed Other Columns\&quot;,{{\&quot;SalesTerritoryRegion\&quot;, \&quot;Region\&quot;}, {\&quot;SalesTerritoryCountry\&quot;, \&quot;Country\&quot;}, {\&quot;SalesTerritoryGroup\&quot;, \&quot;Group\&quot;}})\r\nin\r\n    #\&quot;Renamed Columns\&quot;&quot;,&quot;ReferencedQueriesFormulaText&quot;:{&quot;SqlServerInstance&quot;:&quot;\&quot;POWERBI-SQL\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;SqlServerDatabase&quot;:&quot;\&quot;AdventureWorksDW2020-DAX-Docs\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;}}" />
+        <Entry Type="LoadedToAnalysisServices" Value="l1" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Territory/Source</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Territory/dbo_DimSalesTerritory</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Territory/Removed%20Other%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Territory/Renamed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="IsDirectQuery" Value="l0" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="ResultType" Value="sTable" />
+        <Entry Type="NameUpdatedAfterFill" Value="l1" />
+        <Entry Type="FillColumnNames" Value="s[&quot;ProductKey&quot;,&quot;SKU&quot;,&quot;Product&quot;,&quot;Standard Cost&quot;,&quot;Color&quot;,&quot;List Price&quot;,&quot;Model&quot;,&quot;Subcategory&quot;,&quot;Category&quot;]" />
+        <Entry Type="RelationshipInfoContainer" Value="s{&quot;columnCount&quot;:9,&quot;keyColumnNames&quot;:[],&quot;queryRelationships&quot;:[{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{ProductKey,3}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactProductInventory.{ProductKey,0}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{ProductKey,3}&quot;,&quot;KeyColumnCount&quot;:1}],&quot;columnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ProductKey,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ProductAlternateKey,1}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{EnglishProductName,5}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{StandardCost,8}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{Color,10}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ListPrice,13}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ModelName,22}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProductSubcategory.{EnglishProductSubcategoryName,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProductCategory.{EnglishProductCategoryName,2}&quot;],&quot;ColumnCount&quot;:9,&quot;KeyColumnNames&quot;:[],&quot;ColumnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ProductKey,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ProductAlternateKey,1}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{EnglishProductName,5}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{StandardCost,8}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{Color,10}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ListPrice,13}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProduct.{ModelName,22}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProductSubcategory.{EnglishProductSubcategoryName,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/DimProductCategory.{EnglishProductCategoryName,2}&quot;],&quot;RelationshipInfo&quot;:[{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactInternetSales.{ProductKey,3}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactProductInventory.{ProductKey,0}&quot;,&quot;KeyColumnCount&quot;:1},{&quot;keyColumnCount&quot;:1,&quot;keyColumn&quot;:0,&quot;otherKeyColumnIdentity&quot;:&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/FactResellerSales.{ProductKey,3}&quot;,&quot;KeyColumnCount&quot;:1}]}" />
+        <Entry Type="LastAnalysisServicesFormulaText" Value="s{&quot;IncludesReferencedQueries&quot;:true,&quot;RootFormulaText&quot;:&quot;let\r\n    Source = Sql.Database(SqlServerInstance, SqlServerDatabase),\r\n    dbo_DimProduct = Source{[Schema=\&quot;dbo\&quot;,Item=\&quot;DimProduct\&quot;]}[Data],\r\n    #\&quot;Filtered Rows\&quot; = Table.SelectRows(dbo_DimProduct, each ([FinishedGoodsFlag] = true)),\r\n    #\&quot;Removed Other Columns\&quot; = Table.SelectColumns(#\&quot;Filtered Rows\&quot;,{\&quot;ProductKey\&quot;, \&quot;ProductAlternateKey\&quot;, \&quot;EnglishProductName\&quot;, \&quot;StandardCost\&quot;, \&quot;Color\&quot;, \&quot;ListPrice\&quot;, \&quot;ModelName\&quot;, \&quot;DimProductSubcategory\&quot;}),\r\n    #\&quot;Expanded DimProductSubcategory\&quot; = Table.ExpandRecordColumn(#\&quot;Removed Other Columns\&quot;, \&quot;DimProductSubcategory\&quot;, {\&quot;EnglishProductSubcategoryName\&quot;, \&quot;DimProductCategory\&quot;}, {\&quot;EnglishProductSubcategoryName\&quot;, \&quot;DimProductCategory\&quot;}),\r\n    #\&quot;Expanded DimProductCategory\&quot; = Table.ExpandRecordColumn(#\&quot;Expanded DimProductSubcategory\&quot;, \&quot;DimProductCategory\&quot;, {\&quot;EnglishProductCategoryName\&quot;}, {\&quot;EnglishProductCategoryName\&quot;}),\r\n    #\&quot;Renamed Columns\&quot; = Table.RenameColumns(#\&quot;Expanded DimProductCategory\&quot;,{{\&quot;EnglishProductName\&quot;, \&quot;Product\&quot;}, {\&quot;StandardCost\&quot;, \&quot;Standard Cost\&quot;}, {\&quot;ListPrice\&quot;, \&quot;List Price\&quot;}, {\&quot;ModelName\&quot;, \&quot;Model\&quot;}, {\&quot;EnglishProductSubcategoryName\&quot;, \&quot;Subcategory\&quot;}, {\&quot;EnglishProductCategoryName\&quot;, \&quot;Category\&quot;}, {\&quot;ProductAlternateKey\&quot;, \&quot;SKU\&quot;}})\r\nin\r\n    #\&quot;Renamed Columns\&quot;&quot;,&quot;ReferencedQueriesFormulaText&quot;:{&quot;SqlServerInstance&quot;:&quot;\&quot;POWERBI-SQL\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;SqlServerDatabase&quot;:&quot;\&quot;AdventureWorksDW2020-DAX-Docs\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;}}" />
+        <Entry Type="IsLastAnalysisServicesFormulaTextCollection" Value="l1" />
+        <Entry Type="LoadedToAnalysisServices" Value="l1" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product/Source</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product/dbo_DimProduct</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product/Removed%20Other%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product/Filtered%20Rows</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product/Expanded%20DimProductSubcategory</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product/Expanded%20DimProductCategory</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Product/Renamed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="IsDirectQuery" Value="l0" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="ResultType" Value="sTable" />
+        <Entry Type="NameUpdatedAfterFill" Value="l1" />
+        <Entry Type="FillColumnNames" Value="s[&quot;Channel&quot;,&quot;SalesOrderLineKey&quot;,&quot;Sales Order&quot;,&quot;Sales Order Line&quot;]" />
+        <Entry Type="RelationshipInfoContainer" Value="s{&quot;columnCount&quot;:4,&quot;keyColumnNames&quot;:[],&quot;queryRelationships&quot;:[],&quot;columnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{Channel,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesOrderLineKey,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesOrderNumber,3}&quot;,&quot;Section1/Sales Order/Changed Type.{Sales Order Line,4}&quot;],&quot;ColumnCount&quot;:4,&quot;KeyColumnNames&quot;:[],&quot;ColumnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{Channel,0}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesOrderLineKey,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesOrderNumber,3}&quot;,&quot;Section1/Sales Order/Changed Type.{Sales Order Line,4}&quot;],&quot;RelationshipInfo&quot;:[]}" />
+        <Entry Type="LastAnalysisServicesFormulaText" Value="s{&quot;IncludesReferencedQueries&quot;:true,&quot;RootFormulaText&quot;:&quot;let\r\n    Source = Sql.Database(SqlServerInstance, SqlServerDatabase),\r\n    dbo_vFactSales = Source{[Schema=\&quot;dbo\&quot;,Item=\&quot;vFactSales\&quot;]}[Data],\r\n    #\&quot;Removed Other Columns\&quot; = Table.SelectColumns(dbo_vFactSales,{\&quot;Channel\&quot;, \&quot;SalesOrderLineKey\&quot;, \&quot;SalesOrderNumber\&quot;, \&quot;SalesOrderLineNumber\&quot;}),\r\n    #\&quot;Renamed Columns\&quot; = Table.RenameColumns(#\&quot;Removed Other Columns\&quot;,{{\&quot;SalesOrderNumber\&quot;, \&quot;Sales Order\&quot;}}),\r\n    #\&quot;Added Custom\&quot; = Table.AddColumn(#\&quot;Renamed Columns\&quot;, \&quot;Sales Order Line\&quot;, each [Sales Order] \u0026 \&quot; - \&quot; \u0026 Text.PadStart(Number.ToText([SalesOrderLineNumber]), 2, \&quot;0\&quot;)),\r\n    #\&quot;Changed Type\&quot; = Table.TransformColumnTypes(#\&quot;Added Custom\&quot;,{{\&quot;Sales Order Line\&quot;, type text}}),\r\n    #\&quot;Removed Columns\&quot; = Table.RemoveColumns(#\&quot;Changed Type\&quot;,{\&quot;SalesOrderLineNumber\&quot;})\r\nin\r\n    #\&quot;Removed Columns\&quot;&quot;,&quot;ReferencedQueriesFormulaText&quot;:{&quot;SqlServerInstance&quot;:&quot;\&quot;POWERBI-SQL\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;SqlServerDatabase&quot;:&quot;\&quot;AdventureWorksDW2020-DAX-Docs\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;}}" />
+        <Entry Type="IsLastAnalysisServicesFormulaTextCollection" Value="l1" />
+        <Entry Type="LoadedToAnalysisServices" Value="l1" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order/Source</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order/dbo_vFactSales</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order/Removed%20Other%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order/Renamed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order/Added%20Custom</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order/Changed%20Type</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales%20Order/Removed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="IsDirectQuery" Value="l0" />
+        <Entry Type="NameUpdatedAfterFill" Value="l1" />
+        <Entry Type="ResultType" Value="sTable" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="LoadedToAnalysisServices" Value="l1" />
+        <Entry Type="FillLastUpdated" Value="d2020-06-05T03:10:29.1570219Z" />
+        <Entry Type="FillColumnNames" Value="s[&quot;SalesOrderLineKey&quot;,&quot;ResellerKey&quot;,&quot;CustomerKey&quot;,&quot;ProductKey&quot;,&quot;OrderDateKey&quot;,&quot;DueDateKey&quot;,&quot;ShipDateKey&quot;,&quot;SalesTerritoryKey&quot;,&quot;Order Quantity&quot;,&quot;Unit Price&quot;,&quot;Extended Amount&quot;,&quot;Unit Price Discount Pct&quot;,&quot;Product Standard Cost&quot;,&quot;Total Product Cost&quot;,&quot;Sales Amount&quot;]" />
+        <Entry Type="RelationshipInfoContainer" Value="s{&quot;columnCount&quot;:15,&quot;keyColumnNames&quot;:[],&quot;queryRelationships&quot;:[],&quot;columnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesOrderLineKey,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ResellerKey,5}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{CustomerKey,6}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ProductKey,7}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{OrderDateKey,8}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{DueDateKey,9}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ShipDateKey,10}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesTerritoryKey,13}&quot;,&quot;Section1/Sales/Changed Type.{OrderQuantity,8}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{UnitPrice,16}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ExtendedAmount,17}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{UnitPriceDiscountPct,18}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ProductStandardCost,20}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{TotalProductCost,21}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesAmount,22}&quot;],&quot;ColumnCount&quot;:15,&quot;KeyColumnNames&quot;:[],&quot;ColumnIdentities&quot;:[&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesOrderLineKey,2}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ResellerKey,5}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{CustomerKey,6}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ProductKey,7}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{OrderDateKey,8}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{DueDateKey,9}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ShipDateKey,10}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesTerritoryKey,13}&quot;,&quot;Section1/Sales/Changed Type.{OrderQuantity,8}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{UnitPrice,16}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ExtendedAmount,17}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{UnitPriceDiscountPct,18}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{ProductStandardCost,20}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{TotalProductCost,21}&quot;,&quot;Server.Database\\/2/SQL/powerbi-sql;AdventureWorksDW2020-DAX-Docs/dbo/vFactSales.{SalesAmount,22}&quot;],&quot;RelationshipInfo&quot;:[]}" />
+        <Entry Type="LastAnalysisServicesFormulaText" Value="s{&quot;IncludesReferencedQueries&quot;:true,&quot;RootFormulaText&quot;:&quot;let\r\n    Source = Sql.Database(SqlServerInstance, SqlServerDatabase),\r\n    dbo_vFactSales = Source{[Schema=\&quot;dbo\&quot;,Item=\&quot;vFactSales\&quot;]}[Data],\r\n    #\&quot;Removed Other Columns\&quot; = Table.SelectColumns(dbo_vFactSales,{\&quot;SalesOrderLineKey\&quot;, \&quot;ResellerKey\&quot;, \&quot;CustomerKey\&quot;, \&quot;ProductKey\&quot;, \&quot;OrderDateKey\&quot;, \&quot;DueDateKey\&quot;, \&quot;ShipDateKey\&quot;, \&quot;SalesTerritoryKey\&quot;, \&quot;OrderQuantity\&quot;, \&quot;UnitPrice\&quot;, \&quot;ExtendedAmount\&quot;, \&quot;UnitPriceDiscountPct\&quot;, \&quot;ProductStandardCost\&quot;, \&quot;TotalProductCost\&quot;, \&quot;SalesAmount\&quot;}),\r\n    #\&quot;Changed Type\&quot; = Table.TransformColumnTypes(#\&quot;Removed Other Columns\&quot;,{{\&quot;OrderQuantity\&quot;, Int64.Type}}),\r\n    #\&quot;Renamed Columns\&quot; = Table.RenameColumns(#\&quot;Changed Type\&quot;,{{\&quot;ExtendedAmount\&quot;, \&quot;Extended Amount\&quot;}, {\&quot;OrderQuantity\&quot;, \&quot;Order Quantity\&quot;}, {\&quot;ProductStandardCost\&quot;, \&quot;Product Standard Cost\&quot;}, {\&quot;SalesAmount\&quot;, \&quot;Sales Amount\&quot;}, {\&quot;TotalProductCost\&quot;, \&quot;Total Product Cost\&quot;}, {\&quot;UnitPrice\&quot;, \&quot;Unit Price\&quot;}, {\&quot;UnitPriceDiscountPct\&quot;, \&quot;Unit Price Discount Pct\&quot;}})\r\nin\r\n    #\&quot;Renamed Columns\&quot;&quot;,&quot;ReferencedQueriesFormulaText&quot;:{&quot;SqlServerInstance&quot;:&quot;\&quot;POWERBI-SQL\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;SqlServerDatabase&quot;:&quot;\&quot;AdventureWorksDW2020-DAX-Docs\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;}}" />
+        <Entry Type="IsLastAnalysisServicesFormulaTextCollection" Value="l1" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+        <Entry Type="FillErrorCode" Value="sUnknown" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales/Source</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales/dbo_vFactSales</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales/Removed%20Other%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales/Changed%20Type</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Sales/Renamed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Reseller</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="IsDirectQuery" Value="l0" />
+        <Entry Type="ResultType" Value="sTable" />
+        <Entry Type="NameUpdatedAfterFill" Value="l1" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+        <Entry Type="LastAnalysisServicesFormulaText" Value="s{&quot;IncludesReferencedQueries&quot;:true,&quot;RootFormulaText&quot;:&quot;let\r\n    Source = Sql.Database(SqlServerInstance, SqlServerDatabase),\r\n    dbo_DimReseller = Source{[Schema=\&quot;dbo\&quot;,Item=\&quot;DimReseller\&quot;]}[Data],\r\n    #\&quot;Removed Other Columns\&quot; = Table.SelectColumns(dbo_DimReseller,{\&quot;ResellerKey\&quot;, \&quot;ResellerAlternateKey\&quot;, \&quot;BusinessType\&quot;, \&quot;ResellerName\&quot;, \&quot;DimGeography\&quot;}),\r\n    #\&quot;Expanded DimGeography\&quot; = Table.ExpandRecordColumn(#\&quot;Removed Other Columns\&quot;, \&quot;DimGeography\&quot;, {\&quot;City\&quot;, \&quot;StateProvinceName\&quot;, \&quot;EnglishCountryRegionName\&quot;, \&quot;PostalCode\&quot;}, {\&quot;City\&quot;, \&quot;StateProvinceName\&quot;, \&quot;EnglishCountryRegionName\&quot;, \&quot;PostalCode\&quot;}),\r\n    #\&quot;Add NA Row\&quot; = Table.InsertRows(#\&quot;Expanded DimGeography\&quot;, 0, {[ResellerKey = -1, ResellerAlternateKey = \&quot;[Not Applicable]\&quot;, BusinessType = \&quot;[Not Applicable]\&quot;, ResellerName = \&quot;[Not Applicable]\&quot;, City = \&quot;[Not Applicable]\&quot;, StateProvinceName =\&quot;[Not Applicable]\&quot;, EnglishCountryRegionName =\&quot;[Not Applicable]\&quot;, PostalCode =\&quot;[Not Applicable]\&quot;]}),\r\n    #\&quot;Renamed Columns\&quot; = Table.RenameColumns(#\&quot;Add NA Row\&quot;,{{\&quot;ResellerAlternateKey\&quot;, \&quot;Reseller ID\&quot;}, {\&quot;BusinessType\&quot;, \&quot;Business Type\&quot;}, {\&quot;ResellerName\&quot;, \&quot;Reseller\&quot;}, {\&quot;StateProvinceName\&quot;, \&quot;State-Province\&quot;}, {\&quot;EnglishCountryRegionName\&quot;, \&quot;Country-Region\&quot;}, {\&quot;PostalCode\&quot;, \&quot;Postal Code\&quot;}})\r\nin\r\n    #\&quot;Renamed Columns\&quot;&quot;,&quot;ReferencedQueriesFormulaText&quot;:{&quot;SqlServerInstance&quot;:&quot;\&quot;POWERBI-SQL\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;,&quot;SqlServerDatabase&quot;:&quot;\&quot;AdventureWorksDW2020-DAX-Docs\&quot; meta [IsParameterQuery=true, Type=\&quot;Text\&quot;, IsParameterQueryRequired=true]&quot;}}" />
+        <Entry Type="IsLastAnalysisServicesFormulaTextCollection" Value="l1" />
+        <Entry Type="LoadedToAnalysisServices" Value="l1" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="FillErrorCode" Value="sUnknown" />
+        <Entry Type="FillLastUpdated" Value="d2020-06-05T03:36:14.5176633Z" />
+        <Entry Type="FillColumnNames" Value="s[&quot;ResellerKey&quot;,&quot;Reseller ID&quot;,&quot;Business Type&quot;,&quot;Reseller&quot;,&quot;City&quot;,&quot;State-Province&quot;,&quot;Country-Region&quot;,&quot;Postal Code&quot;]" />
+        <Entry Type="RelationshipInfoContainer" Value="s{&quot;columnCount&quot;:8,&quot;keyColumnNames&quot;:[],&quot;queryRelationships&quot;:[],&quot;columnIdentities&quot;:[&quot;Section1/Reseller/Add NA Row.{ResellerKey,0}&quot;,&quot;Section1/Reseller/Add NA Row.{ResellerAlternateKey,1}&quot;,&quot;Section1/Reseller/Add NA Row.{BusinessType,2}&quot;,&quot;Section1/Reseller/Add NA Row.{ResellerName,3}&quot;,&quot;Section1/Reseller/Add NA Row.{City,4}&quot;,&quot;Section1/Reseller/Add NA Row.{StateProvinceName,5}&quot;,&quot;Section1/Reseller/Add NA Row.{EnglishCountryRegionName,6}&quot;,&quot;Section1/Reseller/Add NA Row.{PostalCode,7}&quot;],&quot;ColumnCount&quot;:8,&quot;KeyColumnNames&quot;:[],&quot;ColumnIdentities&quot;:[&quot;Section1/Reseller/Add NA Row.{ResellerKey,0}&quot;,&quot;Section1/Reseller/Add NA Row.{ResellerAlternateKey,1}&quot;,&quot;Section1/Reseller/Add NA Row.{BusinessType,2}&quot;,&quot;Section1/Reseller/Add NA Row.{ResellerName,3}&quot;,&quot;Section1/Reseller/Add NA Row.{City,4}&quot;,&quot;Section1/Reseller/Add NA Row.{StateProvinceName,5}&quot;,&quot;Section1/Reseller/Add NA Row.{EnglishCountryRegionName,6}&quot;,&quot;Section1/Reseller/Add NA Row.{PostalCode,7}&quot;],&quot;RelationshipInfo&quot;:[]}" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Reseller/Source</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Reseller/Removed%20Other%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Reseller/Expanded%20DimGeography</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Reseller/dbo_DimReseller</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Reseller/Renamed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer/Source</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer/dbo_DimCustomer</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer/Removed%20Other%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer/Expanded%20DimGeography</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer/Merged%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer/Renamed%20Columns</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Customer/Add%20NA%20Row</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Reseller/Add%20NA%20Row</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Culture</ItemPath>
+      </ItemLocation>
+      <StableEntries>
+        <Entry Type="IsPrivate" Value="l0" />
+        <Entry Type="LoadToReportDisabled" Value="l1" />
+        <Entry Type="FillToDataModelEnabled" Value="l0" />
+        <Entry Type="FillEnabled" Value="l0" />
+        <Entry Type="FillObjectType" Value="sConnectionOnly" />
+        <Entry Type="ResultType" Value="sText" />
+        <Entry Type="BufferNextRefresh" Value="l1" />
+        <Entry Type="LoadedToAnalysisServices" Value="l0" />
+        <Entry Type="NavigationStepName" Value="sNavigation" />
+      </StableEntries>
+    </Item>
+    <Item>
+      <ItemLocation>
+        <ItemType>Formula</ItemType>
+        <ItemPath>Section1/Date/Added%20Full%20Date</ItemPath>
+      </ItemLocation>
+      <StableEntries />
+    </Item>
+  </Items>
+</LocalPackageMetadataFile>
