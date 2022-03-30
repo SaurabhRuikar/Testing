@@ -1,0 +1,32 @@
+{
+  "name": "Sales Order",
+  "partitions": [
+    {
+      "name": "Sales Order-3ce1b467-3e1b-4732-b605-3e94fee75991",
+      "mode": "import",
+      "source": {
+        "type": "query",
+        "query": "SELECT * FROM [Sales Order]",
+        "dataSource": "ba0c7649-ede8-47eb-9444-dfed36b2b9ff"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "name": "PBI_Id",
+      "value": "ec0d5ddb-7172-4eeb-b7da-61b3b775eb48"
+    },
+    {
+      "name": "LinkedQueryName",
+      "value": "Sales Order"
+    },
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "Navigation"
+    },
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

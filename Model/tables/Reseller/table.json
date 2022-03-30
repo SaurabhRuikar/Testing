@@ -1,0 +1,32 @@
+{
+  "name": "Reseller",
+  "partitions": [
+    {
+      "name": "Reseller-e44d0a71-e144-4c32-b1af-2f758a686c3c",
+      "mode": "import",
+      "source": {
+        "type": "query",
+        "query": "SELECT * FROM [Reseller]",
+        "dataSource": "a2107722-e86f-42bc-9a96-45028b184ff0"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "name": "PBI_Id",
+      "value": "43d164f8-2b2a-4ba9-9d25-adc526f3db4a"
+    },
+    {
+      "name": "LinkedQueryName",
+      "value": "Reseller"
+    },
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "Navigation"
+    },
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

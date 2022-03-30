@@ -1,0 +1,32 @@
+{
+  "name": "Sales",
+  "partitions": [
+    {
+      "name": "Sales-1c496a38-f0f4-4d25-b987-657177c38553",
+      "mode": "import",
+      "source": {
+        "type": "query",
+        "query": "SELECT * FROM [Sales]",
+        "dataSource": "3917b53a-935c-4f17-9081-ba5240662940"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "name": "PBI_Id",
+      "value": "fe0cceb9-33ac-4e0b-a50c-6595ebefe47b"
+    },
+    {
+      "name": "LinkedQueryName",
+      "value": "Sales"
+    },
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "Navigation"
+    },
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}

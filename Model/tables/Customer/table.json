@@ -1,0 +1,32 @@
+{
+  "name": "Customer",
+  "partitions": [
+    {
+      "name": "Customer-01f41322-c19c-4b65-a4cb-85a8045da233",
+      "mode": "import",
+      "source": {
+        "type": "query",
+        "query": "SELECT * FROM [Customer]",
+        "dataSource": "a1d92ebf-e573-4ecd-b11e-f6c57c467f42"
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "name": "PBI_Id",
+      "value": "bac4405d-0d0a-40eb-9c9b-46b16ddd0458"
+    },
+    {
+      "name": "LinkedQueryName",
+      "value": "Customer"
+    },
+    {
+      "name": "PBI_NavigationStepName",
+      "value": "Navigation"
+    },
+    {
+      "name": "PBI_ResultType",
+      "value": "Table"
+    }
+  ]
+}
