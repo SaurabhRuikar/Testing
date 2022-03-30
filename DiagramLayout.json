@@ -1,0 +1,85 @@
+{
+  "version": "1.0.0",
+  "diagrams": [
+    {
+      "name": "All tables",
+      "zoomValue": 93.907466788822717,
+      "isDefault": true,
+      "tables": [
+        "Customer",
+        "Date",
+        "Product",
+        "Reseller",
+        "Sales",
+        "Sales Order",
+        "Sales Territory"
+      ],
+      "layout": {
+        "boundingBoxWidth": 814.1,
+        "boundingBoxHeight": 762.55121951219519,
+        "boundingBoxPosition": {
+          "x": 0,
+          "y": 0
+        },
+        "nodes": [
+          {
+            "height": 195,
+            "layedOut": true,
+            "left": 13.843414634146342,
+            "nodeIndex": "Customer",
+            "top": 549.09560975609759,
+            "width": 180
+          },
+          {
+            "height": 195,
+            "layedOut": true,
+            "left": 634.1,
+            "nodeIndex": "Date",
+            "top": 329.7,
+            "width": 180
+          },
+          {
+            "height": 214,
+            "layedOut": true,
+            "left": 484.58487804878047,
+            "nodeIndex": "Product",
+            "top": 0,
+            "width": 180
+          },
+          {
+            "height": 180,
+            "layedOut": true,
+            "left": 36.324390243902442,
+            "nodeIndex": "Sales Order",
+            "top": 22.828780487804877,
+            "width": 183
+          },
+          {
+            "height": 138,
+            "layedOut": true,
+            "left": 490.75853658536585,
+            "nodeIndex": "Sales Territory",
+            "top": 624.55121951219519,
+            "width": 180
+          },
+          {
+            "height": 300,
+            "layedOut": true,
+            "left": 290.00292682926829,
+            "nodeIndex": "Sales",
+            "top": 265.50292682926829,
+            "width": 180
+          },
+          {
+            "height": 195,
+            "layedOut": true,
+            "left": 0,
+            "nodeIndex": "Reseller",
+            "top": 265.15463414634149,
+            "width": 180
+          }
+        ]
+      }
+    }
+  ]
+}

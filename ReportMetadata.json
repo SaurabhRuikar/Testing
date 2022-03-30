@@ -1,0 +1,47 @@
+{
+  "_queryNameToKeyMapping": [
+    {
+      "key": "Sales Order",
+      "value": "ec0d5ddb-7172-4eeb-b7da-61b3b775eb48"
+    },
+    {
+      "key": "SqlServerInstance",
+      "value": "9899f228-7bf3-495b-a9b9-7eb744fcd273"
+    },
+    {
+      "key": "SqlServerDatabase",
+      "value": "95a25715-2364-4c55-b7d2-4e85797823f5"
+    },
+    {
+      "key": "Customer",
+      "value": "bac4405d-0d0a-40eb-9c9b-46b16ddd0458"
+    },
+    {
+      "key": "Date",
+      "value": "cf27185b-e786-4d5a-b5f2-93ed061c098f"
+    },
+    {
+      "key": "Sales Territory",
+      "value": "727a6676-00a8-4de5-b0c5-bf5a8e75f262"
+    },
+    {
+      "key": "Product",
+      "value": "e23705eb-39bf-42e6-b995-251280413f45"
+    },
+    {
+      "key": "Reseller",
+      "value": "43d164f8-2b2a-4ba9-9d25-adc526f3db4a"
+    },
+    {
+      "key": "Sales",
+      "value": "fe0cceb9-33ac-4e0b-a50c-6595ebefe47b"
+    },
+    {
+      "key": "Culture",
+      "value": "8166c033-84ea-4fe3-8263-839a8d7506f9"
+    }
+  ],
+  "version": 4,
+  "autoCreatedRelationships": [],
+  "fileDescription": ""
+}
